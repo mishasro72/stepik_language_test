@@ -8,7 +8,6 @@ def pytest_addoption(parser):
     parser.addoption('--language', action = 'store', default = None, help = 'Choose youe language')
 
 
-
 @pytest.fixture
 def chrome_opt(request):
 
@@ -16,14 +15,6 @@ def chrome_opt(request):
     options = Options()
     options.add_experimental_option('prefs', {'intl.accept_languages' : language})
     return options
-
-
-# @pytest.fixture
-# def chrome_opt(lang = input('Write your language: ')):
-
-#     options = Options()
-#     options.add_experimental_option('prefs', {'intl.accept_languages' : {lang}})
-#     return options
 
 @pytest.fixture
 def driver(chrome_opt):
